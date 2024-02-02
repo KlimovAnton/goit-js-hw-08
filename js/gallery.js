@@ -85,16 +85,16 @@ function createGallery(images) {
 .join("")
 };
 
-galleryElement.addEventListener("click", onClick)
+galleryElement.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (!event.target.classList.contains("gallery-image")){
+    return;
+  }
 
-function onClick (event) {
-event.preventDefault();
-if(!event.target.classList.contains("gallery-image")) {
-  return
-} 
-const instance = basicLightbox.create(`
-<img src="${event.target.dataset.source}" width="800" height="600">`
-)
+  instance = basicLightbox.create(
+    `<img src="${event.target.dataset.source}" width="800" height="600">`
+  )
   instance.show()
-  };
+  
+});
 
