@@ -95,6 +95,15 @@ galleryElement.addEventListener("click", (event) => {
     `<img src="${event.target.dataset.source}" width="800" height="600">`
   )
   instance.show()
+
+  document.addEventListener(`keydown`, onClose) 
+  function onClose(event) {
+      if(event.key !== `Escape`) {
+        return
+      } 
+      instance.close()
+      document.removeEventListener(`keydown`, onClose)
+  }
   
 });
 
