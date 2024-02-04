@@ -90,9 +90,9 @@ galleryElement.addEventListener("click", (event) => {
   if (!event.target.classList.contains("gallery-image")){
     return;
   }
-
+  
   instance = basicLightbox.create(
-    `<img src="${event.target.dataset.source}" width="800" height="600">`,
+    `<img src="${event.target.dataset.source}" width="800" height="600" alt="${event.target.alt}"/>`,
     {
       onShow: () => {
         document.addEventListener(`keydown`, onClose) 
